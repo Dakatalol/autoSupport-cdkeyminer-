@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+webdriver-manager = "==1.7"
+selenium = "==3.14.1"
+pytest = "==3.9.2"
+pytest-html = "==1.19.0"
+pytest-spec = "==1.1.0"
+Pillow = "==5.3.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
