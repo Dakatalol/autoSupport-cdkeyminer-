@@ -21,7 +21,7 @@ class Login(BasePage):
     #
 
     def login(self, acc, pw):
-        self.driver.get("https://app.cdkeyminer.com/#loginForm")
+        self.navigate_to_login_page()
         self.type(self._login_account_field, acc)
         self.type(self._login_password_field, pw)
         self.click(self._login_login_button)
