@@ -12,7 +12,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
-
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from utils.utils import Config
 from .decorators import log_exception
 
@@ -483,6 +483,9 @@ class BasePage(object):
 
     def current_url(self):
         return self.driver.current_url
+
+    def url_contains(self, text):
+        return expected_conditions.url_contains(text)
 
     def page_title(self):
         return self.driver.title

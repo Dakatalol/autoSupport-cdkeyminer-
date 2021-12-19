@@ -78,4 +78,7 @@ def test_verify_user_is_able_to_login(driver):
     Login(driver).navigate_to_login_page()
     Login(driver).login("testacc", "159357")
     Login(driver).wait_for_element_to_be_clickable(Login._dashboard_menu_icon)
-    assert Login(driver).is_element_present(Login._dashboard_menu_icon)
+    is_logged = Login(driver).is_element_present(Login._dashboard_menu_icon)
+    Login(driver).logout()
+    Login(driver).wait_for_page_loaded()
+    assert is_logged is True

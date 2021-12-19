@@ -11,6 +11,9 @@ class Login(BasePage):
     _password_reset_link = "//p[@id='registerPrompt']/a[@href='#pwResetForm']"
     _logo_image = "//div[@id='loginForm']/img[@class='logo']"
     _dashboard_menu_icon = "//div[@id='menuButton']/i"
+    _dashboard_logo = "//div[@id='dashboard']/img[@class='logo']"
+    _dashboard_menu_button = "//div[@id='menuButton']"
+    _dashboard_logout_button = "//div[@id='logoutBtn']"
 
     def __init__(self, driver):
         self.driver = driver
@@ -29,3 +32,13 @@ class Login(BasePage):
 
     def navigate_to_login_page(self):
         self.driver.get("https://app.cdkeyminer.com/#loginForm")
+
+    def logout(self):
+        try:
+            self.click(self._dashboard_menu_button)
+            self.is_clickable(self._dashboard_logout_button)
+            self.click(self._dashboard_logout_button)
+            self.wait_for_page_loaded()
+            self.driver.get("https://app.cdkeyminer.com/#registerForm")
+        except:
+            pass
